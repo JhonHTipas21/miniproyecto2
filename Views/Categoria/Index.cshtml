@@ -1,0 +1,36 @@
+@model IEnumerable<GestorGastos.Web.Models.CategoriaViewModel>
+
+@{ ViewData["Title"] = "Categorías"; }
+
+<h1>@ViewData["Title"]</h1>
+<p><a asp-action="Create" class="btn btn-success">Nueva Categoría</a></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>@Html.DisplayNameFor(m => m.First().Titulo)</th>
+      <th>@Html.DisplayNameFor(m => m.First().Descripcion)</th>
+      <th>@Html.DisplayNameFor(m => m.First().PorcentajeMaximo)</th>
+      <th>Gasto Actual (mes)</th>
+      <th>Máximo Permitido</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  @foreach(var c in Model) {
+    <tr>
+      <td>@c.Titulo</td>
+      <td>@c.Descripcion</td>
+      <td>@c.PorcentajeMaximo %</td>
+      <td>@c.GastoActual.ToString("C")</td>
+      <td>@c.MaxPermitido.ToString("C")</td>
+      <td>
+        <a asp-action="Edit" asp-route-id="@c.Id" class="btn btn-sm btn-primary">Editar</a>
+        <form asp-action="Delete" asp-route-id="@c.Id" method="post" class="d-inline">
+          <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+  }
+  </tbody>
+</table>

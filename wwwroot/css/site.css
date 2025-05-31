@@ -1,0 +1,74 @@
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: 80px;
+  background: #329d9c;
+  padding-top: 1rem;
+}
+.sidebar-logo {
+  width: 40px;
+}
+.sidebar .nav-link {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+.sidebar-label {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+.page-content {
+  margin-left: 80px;
+  transition: margin 0.3s;
+}
+
+/* Topbar */
+.navbar-brand {
+  font-weight: 600;
+}
+.btn-outline-primary,
+.btn-primary,
+.btn-outline-danger {
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+}
+
+/* Dashboard grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap: 1rem;
+}
+
+/* Cards */
+.summary-card {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.summary-card .label {
+  font-size: 0.9rem;
+  color: #666;
+}
+.summary-card .value {
+  font-size: 1.8rem;
+  color: #329d9c;
+  margin: 0.5rem 0;
+}
+
+/* Chart container */
+.chart-card {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 800px;
+  margin: 0 auto;  /* centrado */
+}
+.chart-card canvas {
+  height: 300px !important;
+}

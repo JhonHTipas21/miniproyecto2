@@ -1,0 +1,60 @@
+﻿@model GestorGastos.Web.Models.DashboardViewModel
+@{
+  ViewData["Title"] = "Finanzas";
+}
+
+<!-- BANNER DE BIENVENIDA -->
+<div class="alert alert-secondary rounded-pill text-center">
+  ¡Bienvenido a tu Gestor de Gastos!
+</div>
+
+<!-- GRID DE RESUMEN -->
+<div class="dashboard-grid mb-4">
+  <div class="summary-card">
+    <small class="label">Atrasados</small>
+    <div class="value">@Model.OverdueTotal.ToString("C")</div>
+    <p>@Model.OverdueCount gastos</p>
+  </div>
+  <div class="summary-card">
+    <small class="label">Vence hoy</small>
+    <div class="value">@Model.DueTodayTotal.ToString("C")</div>
+    <p>@Model.DueTodayCount gasto(s)</p>
+  </div>
+  <div class="summary-card">
+    <small class="label">Próximos 7 días</small>
+    <div class="value">@Model.WeeklyTotal.ToString("C")</div>
+    <p>@Model.WeeklyCount gasto(s)</p>
+  </div>
+</div>
+
+<!-- GRÁFICO DE LÍNEA -->
+<div class="chart-card mb-4">
+  <canvas id="monthlyChart"></canvas>
+</div>
+
+@section Scripts {
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('monthlyChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Labels)),
+        datasets: [{
+          data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Data)),
+          borderColor: '#329d9c',
+          backgroundColor: 'rgba(50,157,156,0.2)',
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: true }
+        },
+        plugins: { legend: { display: false } }
+      }
+    });
+  </script>
+}

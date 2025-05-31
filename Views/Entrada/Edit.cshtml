@@ -1,0 +1,23 @@
+@model GestorGastos.Web.Models.Entrada
+@{
+    ViewData["Title"] = "Editar Entrada";
+}
+<h1>Editar Entrada</h1>
+<form asp-action="Edit" method="post">
+  <input type="hidden" asp-for="Id" />
+  <div class="mb-3">
+    <label asp-for="Fecha" class="form-label"></label>
+    <input asp-for="Fecha" class="form-control" type="date" />
+    <span asp-validation-for="Fecha" class="text-danger"></span>
+  </div>
+  <div class="mb-3">
+    <label asp-for="Monto" class="form-label"></label>
+    <input asp-for="Monto" class="form-control" />
+    <span asp-validation-for="Monto" class="text-danger"></span>
+  </div>
+  <button type="submit" class="btn btn-primary">Actualizar</button>
+  <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+@section Scripts {
+  <partial name="_ValidationScriptsPartial" />
+}

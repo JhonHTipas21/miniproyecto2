@@ -1,0 +1,23 @@
+﻿@model GestorGastos.Web.Models.ErrorViewModel
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error</h1>
+<h2 class="text-danger">Ha ocurrido un error al procesar la solicitud.</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<p>
+    Puedes volver a la <a asp-controller="Home" asp-action="Index">página principal</a>.
+</p>
+
+@section Scripts {
+    <!-- Si quieres incluir detalles de Development Mode, mantenlos aquí -->
+}

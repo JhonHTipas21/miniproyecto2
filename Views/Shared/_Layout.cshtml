@@ -1,0 +1,103 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using GestorGastos.Web.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>@ViewData["Title"] – GestorGastos</title>
+
+  <!-- Bootstrap & FontAwesome -->
+  <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <!-- Tu CSS personalizado -->
+  <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <nav id="sidebar" class="sidebar d-flex flex-column justify-content-between">
+    <div class="mt-4">
+      <ul class="nav flex-column text-center">
+        <li class="nav-item mb-3">
+          <a asp-controller="Home" asp-action="Index" class="nav-link text-white">
+            <i class="fas fa-home fa-2x"></i>
+            <div class="sidebar-label">Inicio</div>
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a asp-controller="Categoria" asp-action="Index" class="nav-link text-white">
+            <i class="fas fa-folder-open fa-2x"></i>
+            <div class="sidebar-label">Categorías</div>
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a asp-controller="Gasto" asp-action="Index" class="nav-link text-white">
+            <i class="fas fa-money-bill-wave fa-2x"></i>
+            <div class="sidebar-label">Gastos</div>
+          </a>
+        </li>
+        <li class="nav-item mb-3">
+          <a asp-controller="Entrada" asp-action="Index" class="nav-link text-white">
+            <i class="fas fa-wallet fa-2x"></i>
+            <div class="sidebar-label">Entradas</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="mb-4 text-center">
+      <small class="text-white-50">v1.0</small>
+    </div>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  <div class="page-content">
+
+    <!-- TOPBAR -->
+    <nav class="navbar navbar-expand bg-white shadow-sm px-4">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h4">@ViewData["Title"]</span>
+
+        <div class="ms-auto">
+          @if (SignInManager.IsSignedIn(User))
+          {
+            <span class="me-3">Hola, <strong>@UserManager.GetUserName(User)</strong>!</span>
+            <form asp-area="Identity" asp-page="/Account/Logout"
+                  asp-route-returnUrl="~/" method="post" class="d-inline">
+              <button type="submit" class="btn btn-outline-danger btn-sm">
+                <i class="fas fa-sign-out-alt"></i> Cerrar
+              </button>
+            </form>
+          }
+          else
+          {
+            <a class="btn btn-outline-primary btn-sm me-2"
+               asp-area="Identity" asp-page="/Account/Login">
+              <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+            </a>
+            <a class="btn btn-primary btn-sm"
+               asp-area="Identity" asp-page="/Account/Register">
+              <i class="fas fa-user-plus"></i> Regístrate
+            </a>
+          }
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="container-fluid px-4 py-4">
+      @RenderBody()
+    </main>
+  </div>
+
+  <!-- Scripts básicos -->
+  <script src="~/lib/jquery/jquery.min.js"></script>
+  <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Sección opcional de scripts de vistas -->
+  @RenderSection("Scripts", required: false)
+</body>
+</html>

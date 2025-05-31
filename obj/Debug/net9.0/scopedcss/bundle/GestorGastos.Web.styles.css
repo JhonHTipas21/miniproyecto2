@@ -1,0 +1,42 @@
+/* _content/GestorGastos.Web/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Mantener footer en la parte baja sin superponer contenido */
+body[b-vnq0wmy0zr] {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.container[b-vnq0wmy0zr] {
+  flex: 1;
+  padding-bottom: 60px; /* para dejar espacio para el footer si es fijo */
+}
+
+/* Para un footer fijo, si prefieres esa opción */
+.footer[b-vnq0wmy0zr] {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  line-height: 60px;
+  background-color: #f8f9fa; /* opcional, color de fondo del footer */
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Mejorar tamaño de los botones en formularios */
+.btn[b-vnq0wmy0zr] {
+  font-weight: 500;
+}
+
+/* Opcional: estilos para tablas, si quieres que sean más destacados */
+table[b-vnq0wmy0zr] {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+th[b-vnq0wmy0zr] {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+td[b-vnq0wmy0zr], th[b-vnq0wmy0zr] {
+  padding: 0.75rem;
+  vertical-align: middle;
+}
