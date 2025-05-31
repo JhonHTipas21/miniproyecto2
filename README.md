@@ -50,23 +50,10 @@
 
 ## 📸 Vista previa (UI)
 
-![Interfaz principal](../afb33c50-02c6-4301-ba0b-9e217f8855c1.png)
+![Interfaz principal](C:\Users\User\Downloads\WhatsApp Image 2025-05-30 at 2.47.38 PM.jpeg)
 
 Pantalla principal donde se visualizan los gastos registrados con sus respectivas categorías.
 
----
-
-## 🧪 Pruebas y calidad
-
-Este proyecto incluye un script de pruebas automatizadas con Selenium:
-
-bash
-✔ Crear gasto con categoría
-✔ Validación de formulario sin categoría
-✔ Mostrar categorías en listado
-
-
-Además, se ha probado manualmente cada componente utilizando un plan de pruebas documentado en Excel.
 
 ---
 
