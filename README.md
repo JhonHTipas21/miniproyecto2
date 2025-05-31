@@ -86,10 +86,7 @@ Update-Database
 
 ---
 
-## ✨ Autores
 
-- 👨‍💻 *Jhon H. Tipas*  
-- 👨‍💻 [Tu nombre y equipo si aplica]
 
 ---
 
